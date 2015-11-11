@@ -1,28 +1,27 @@
-== README
+== Maze Solver
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== Requirements
 
-Things you may want to cover:
+Build a Rails application that generates and solves a Maze.
 
-* Ruby version
+=== Approach
 
-* System dependencies
+A separation of concerns, between the maze generator, and the maze solver
+requires a data format between these to components to represent a maze.
 
-* Configuration
+A maze can be represented in a number of ways, but for this exercise I have
+chosen to represent a maze as a graph; where nodes are choices, and edges
+are the paths between nodes. This then generalizes the maze solving part of the
+challenge to a graph traversal, and separates the generation of a maze into
+two parts; generating a random graph, and displaying a maze-like visual
+representation of a graph.
 
-* Database creation
+The graph could be any form, for example even a cyclic graph, but for this
+exercise I will start with a tree. The root node can be the entry/start, and a single
+leaf node can be the exit/finish.
 
-* Database initialization
+== Components
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+MazeGenerator - Generates a random graph suitable for a maze
+MazeSolver - Finds a path from the start to the finish.
+MazeRenderer - Renders a graph to be maze-like
