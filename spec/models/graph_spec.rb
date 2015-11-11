@@ -27,5 +27,8 @@ RSpec.describe Graph do
       graph.add_edge(from: :root, to: :destination)
       expect(graph.vertex(:root).edges).to include(:destination)
     end
+    it "raises an exception when the provided names are not in the graph" do
+      expect{ graph.add_edge(from: :root, to: :missing)}.to raise_error(Graph::VertexNotFoundError)
+    end
   end
 end

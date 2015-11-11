@@ -1,5 +1,7 @@
 class Graph
 
+  class VertexNotFoundError < StandardError; end
+
   Vertex = Struct.new("Vertex", :name, :edges) do
     def initialize(name, edges = Set.new)
       super
@@ -24,6 +26,8 @@ class Graph
   end
 
   def add_edge(from:, to:)
-    vertex(from).edges.add to
+    raise VertexNotFoundError.new("Vertex '#{from}' (from) is not in the graph") unless vertex(from)
+    raise VertexNotFoundError.new("Vertex '#{to}' (to) is not in the graph") unless vertex(to)
+    vertex(from).edges.add(to)
   end
 end
