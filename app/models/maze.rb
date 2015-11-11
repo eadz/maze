@@ -6,6 +6,7 @@ class Maze
     @size = size
   end
 
+  # TODO, reafactor out into maze generator service
   def generate
     level_verticies = [:root]
     new_level = []

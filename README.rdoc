@@ -25,3 +25,12 @@ leaf node can be the exit/finish.
 MazeGenerator - Generates a random graph suitable for a maze
 MazeSolver - Finds a path from the start to the finish.
 MazeRenderer - Renders a graph to be maze-like
+
+== Renderer
+
+The rendering approach I plan to take is to generate a circular maze,
+with the start in the center. Each level of the graph expands outwards,
+with a rotation between each level to visually confuse the viewer.
+
+I would work out the positions by dividing 360 degrees by the number of nodes on that level,
+and converting the polar coordinates to cartesian for SVG.
