@@ -1,13 +1,9 @@
 class Maze
-  attr :graph
+  attr :graph, :exit_id
 
   def initialize(size = 30)
     @graph = Graph.new
     @size = size
-  end
-
-  def exit_id
-    @size - 1 # the last vertex to be generated
   end
 
   def generate
@@ -26,6 +22,7 @@ class Maze
       end
       level_verticies = new_level
     end
+    @exit_id = vertexID - 1 # the last vertex to be generated
   end
 
   private
